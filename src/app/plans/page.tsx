@@ -5,7 +5,7 @@ export default async function PlansPage() {
   const plans = await getPlans();
 
   return (
-    <div className="flex-1 bg-slate-50 px-24 py-16">
+    <main className="flex-1 bg-slate-50 px-24 py-16"> //correccion 3
       <h1 className="text-5xl font-bold text-slate-900">Explorar planes</h1>
 
       <div className="grid grid-cols-4 gap-8 mt-12">
@@ -13,9 +13,10 @@ export default async function PlansPage() {
           <Link key={plan.id} href={`/plans/${plan.id}`}>
             <img
               src={plan.image}
+              alt={plan.name} //correccion 2
               className="w-full h-60 object-cover rounded-xl"
             />
-            <h4 className="text-2xl text-slate-900 mt-3">{plan.name}</h4>
+            <h2 className="text-2xl text-slate-900 mt-3">{plan.name}</h2> //correccion 5
             <p className="flex items-center text-sm text-slate-300">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -58,6 +59,6 @@ export default async function PlansPage() {
           </Link>
         ))}
       </div>
-    </div>
+    </main> //correccion 3
   );
 }
